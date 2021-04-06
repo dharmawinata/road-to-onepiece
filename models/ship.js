@@ -11,12 +11,28 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // Ship.hasMany(models.Pirate)
     }
   };
   Ship.init({
-    name: DataTypes.STRING,
-    type: DataTypes.STRING,
-    power: DataTypes.INTEGER
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+      notEmpty: true
+      }
+    },
+    type: {
+      type: DataTypes.STRING,
+      validate: {
+      notEmpty: true
+      }
+    },
+    power: {
+      type: DataTypes.INTEGER,
+      validate: {
+      notEmpty: true
+      }
+    }
   }, {
     sequelize,
     modelName: 'Ship',
