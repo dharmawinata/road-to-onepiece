@@ -1,4 +1,5 @@
-const ShipRouter = require('express').Router();
+const PirateRouter = require('express').Router();
 
+const PirateController = require('../controllers/PirateController')
 
-module.exports = ShipRouter;
+module.exports = PirateRouter;
