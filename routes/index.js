@@ -2,10 +2,13 @@
 const router = require('express').Router();
 
 const ShipRoutes = require('./ship')
-// const PirateRoutes = require('./pirate')
+const PirateRoutes = require('./pirate')
 
-router.use('/', ShipRoutes)
+router.get('/', (req, res) => {
+    res.send("Hello world!")
+})
+
 router.use('/ships', ShipRoutes)
-// router.use('/pirates', PirateRoutes)
+router.use('/pirates', PirateRoutes)
 
 module.exports = router

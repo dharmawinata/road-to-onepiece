@@ -11,6 +11,10 @@ class ShipController {
         })
     }
 
+    static addPageShip(req, res) {
+       
+    }
+
     static addShip(req, res) {
         const {name, type, power} = req.body
         Ship.create({
