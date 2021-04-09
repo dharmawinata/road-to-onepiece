@@ -15,9 +15,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Pirate.init({
-    name: DataTypes.STRING,
-    status: DataTypes.STRING,
-    type: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+    status: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
+    type: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true
+      }
+    },
     ShipId: DataTypes.INTEGER
   }, {
     sequelize,
