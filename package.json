@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dharmawinata/road-to-onepiece#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "sequelize": "^6.6.2"

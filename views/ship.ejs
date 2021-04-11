@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Road To Onepiece</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div class="bg-image" style="background-image: url('https://cdn.wallpapersafari.com/96/83/xo1p8t.png'); background-size: 100%; height: 100vh; background-repeat: no-repeat">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <div class="container text-center">
+            <h1 class="text-light">Road To Onepiece</h1>
+            <p class="text-light">Welcome, please see and enter the names of the ships and their crews</p>
+            <div class="inline-block">
+              <a class="btn btn-sm btn-primary" href="/ships">See Ships</a>
+              <a class="btn btn-sm btn-primary" href="/pirates">See Pirates</a>
+            </div>
+            <div class="float-end">
+                <a class="btn btn-sm btn-primary mb-3" href="/ships/add">+ Add Ship</a>
+            </div>
+            <table class="table table-bordered table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">TYPE</th>
+                    <th scope="col">POWER</th>
+                    <th scope="col">ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% ships.forEach(ship => { %>
+                  <tr>
+                    <td><%= ship.id %></td>
+                    <td><%= ship.name %></td>
+                    <td><%= ship.type %></td>
+                    <td><%= ship.power %> out of 10000</td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="/ships/delete/<%= ship.id %>">Delete</a> 
+                    </td>
+                  </tr>
+                <% }) %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

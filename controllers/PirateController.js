@@ -5,10 +5,13 @@ class PirateController {
         Pirate.findAll({
             include: [
                 Ship
+            ],
+            order: [
+                ['id', 'ASC']
             ]
         })
         .then(pirates => {
-            res.send(pirates);
+            res.render('pirate.ejs', {pirates});
         })
         .catch(err => {
             res.send(err);
@@ -16,7 +19,7 @@ class PirateController {
     }
 
     static addPagePirate(req, res) {
-       
+       res.render('addPirate.ejs')
     }
 
     static addPirate(req, res) {
@@ -24,7 +27,7 @@ class PirateController {
         Pirate.create({
             name, status, type, ShipId
         }).then(pirates => {
-            res.send(pirates);
+            res.redirect('/pirates');
         }).catch(err => {
             res.send(err);
         })
@@ -35,7 +38,7 @@ class PirateController {
         Pirate.destroy({
             where: {id}
         }).then(() => {
-            res.send(`Id ${id} has been deleted`)
+            res.redirect('/pirates')
         }).catch(err => {
             res.send(err);
         })
