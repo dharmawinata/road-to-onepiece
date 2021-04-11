@@ -2,9 +2,13 @@ const {Ship} = require('../models')
 
 class ShipController {
     static readShips(req,res) {
-        Ship.findAll({})
+        Ship.findAll({
+            order : [
+                ['id', 'ASC']
+            ]
+        })
         .then(ships => {
-            res.send(ships);
+            res.render('ship.ejs', {ships});
         })
         .catch(err => {
             res.send(err);
@@ -12,7 +16,7 @@ class ShipController {
     }
 
     static addPageShip(req, res) {
-       
+       res.render('addShip.ejs')
     }
 
     static addShip(req, res) {
@@ -20,7 +24,7 @@ class ShipController {
         Ship.create({
             name, type, power
         }).then(ships => {
-            res.send(ships);
+            res.redirect('/ships');
         }).catch(err => {
             res.send(err);
         })
@@ -31,7 +35,7 @@ class ShipController {
         Ship.destroy({
             where: {id}
         }).then(() => {
-            res.send(`Id ${id} has been deleted`)
+            res.redirect('/ships')
         }).catch(err => {
             res.send(err);
         })

@@ -5,7 +5,7 @@ const ShipRoutes = require('./ship')
 const PirateRoutes = require('./pirate')
 
 router.get('/', (req, res) => {
-    res.send("Hello world!")
+    res.render("index.ejs")
 })
 
 router.use('/ships', ShipRoutes)
